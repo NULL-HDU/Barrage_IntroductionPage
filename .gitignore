@@ -1,5 +1,5 @@
 /node_modules/
-/static/dist/
-/static/index.html
+/Barrage_IntroductionPage/dist/
+/Barrage_IntroductionPage/index.html
 *.swp
 npm-debug.log

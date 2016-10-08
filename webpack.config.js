@@ -9,7 +9,7 @@ let webpack = require("webpack");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
 let entry = require("./entry.js")
 
-let static_dir = join(__dirname, "./static");
+let static_dir = join(__dirname, "./Barrage_IntroductionPage");
 let node_env = process.env.NODE_ENV;
 
 let webpackDefineConfig = {
@@ -47,7 +47,7 @@ let webpackconfig = {
         //where compiled files be put
         path: join(static_dir, "./dist"),
         //url for develop server
-        publicPath: "/static/dist/", //uri while web set run
+        publicPath: "/Barrage_IntroductionPage/dist/", //uri while web set run
         filename: "[name].js"
     },
     module: {
@@ -96,7 +96,7 @@ let webpackconfig = {
         historyApiFallback: {
             rewrites: [{
                 from: /^\/(|index.html)$/,
-                to: "/static/index.html"
+                to: "/Barrage_IntroductionPage/index.html"
             }],
         },
         proxy: {
