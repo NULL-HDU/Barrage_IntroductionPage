@@ -13,27 +13,27 @@ let static_dir = join(__dirname, "./static");
 let node_env = process.env.NODE_ENV;
 
 let webpackDefineConfig = {
-  "process.env": JSON.stringify(node_env)
+    "process.env": JSON.stringify(node_env)
 }
 
 // https://github.com/ampedandwired/html-webpack-plugin
 let htmlWebpackPluginConfig = {
-  filename: join(static_dir, "./index.html"),
-  template: "template.html",
-  inject: true,
+    filename: join(static_dir, "./index.html"),
+    template: "template.html",
+    inject: true,
 };
 
 let isDebug = true;
 if (node_env === "production") {
     isDebug = false;
     Object.assign(htmlWebpackPluginConfig, {
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      }
+        minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true
+                // more options:
+                // https://github.com/kangax/html-minifier#options-quick-reference
+        }
     })
 }
 
@@ -58,6 +58,9 @@ let webpackconfig = {
             query: {
                 presets: ["es2015", "react"]
             }
+        }, {
+            test: /\.json$/,
+            loader: "json"
         }, { //Only do this use to local css!
             test: /\.css$/,
             loader: "style-loader!css-loader?modules",
