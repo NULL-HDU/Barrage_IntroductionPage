@@ -6,11 +6,11 @@
 
 在文件`entry.js`文件的module中注册入口文件， **key**为导出文件名前缀，**value**为入口文件地址，可参照 test.js 的注册方式。
 
-打包代码时，webpack 会将 `entry.js` 中的各个入口文件，以及它们的依赖都编译到导出目录（`/static/dist`）。而且，每个入口文件的导出路径（`/static/dist/*`[^footnoot2]）以**script** tag形式自动插入到 `template.html`文件的 **body** tag内部生成新的 html文件并导出至 `./static/index.html`。
+打包代码时，webpack 会将 `entry.js` 中的各个入口文件，以及它们的依赖都编译到导出目录（`/Barrage_IntroductionPage/dist`）。而且，每个入口文件的导出路径（`/Barrage_IntroductionPage/dist/*`[^footnoot2]）以**script** tag形式自动插入到 `template.html`文件的 **body** tag内部生成新的 html文件并导出至 `./Barrage_IntroductionPage/index.html`。
 
 production环境下编译还具有代码压缩能力。默认有三种环境： **development**，**testing**， **production**[^footnote1]。
 
-webpack-dev-server 会监听本地 **8080** 端口，以`./`文件夹为服务文件夹，不过 `/`路径和 `/index.html` 都会被重写到 `/static/index.html`路径，所以开启webpack-dev-server后能够直接访问导出的index.html。
+webpack-dev-server 会监听本地 **8080** 端口，以`./`文件夹为服务文件夹，不过 `/`路径和 `/index.html` 都会被重写到 `/Barrage_IntroductionPage/index.html`路径，所以开启webpack-dev-server后能够直接访问导出的index.html。
 
 webpack-dev-server 会将 `/api/*`路径重定向到 `http://localhost:3000`，便于后期api拓展时的开发。
 
@@ -49,6 +49,16 @@ npm run webpack-test
 npm run webpack-pro
 ```
 
+## distribution
+将 `./Barrage_IntroductionPage` 中的文件push到gh-pages分支。
+
+```sh
+cd ./Barrage_IntroductionPage
+git add --all
+git commit -am"message"
+git push origin master:gh-pages
+```
+
 
 [^footnoot1]: 环境的不同只是 **NODE_ENV** 这个环境变量的值得不同, e.g. NODE_ENV=development
-[^footnoot2]: /static/dist/* 和 /static/index.html 都会被 git 忽略。
+[^footnoot2]: 该项目依靠github page部署，因此该项目的static目录改为Barrage_IntroductionPage.
