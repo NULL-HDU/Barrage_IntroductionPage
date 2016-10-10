@@ -8,8 +8,12 @@ let join = require("path").join;
 let webpack = require("webpack");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
 let entry = require("./entry.js")
+let defaultStaticDir = "Barrage_IntroductionPage"
 
-let static_dir = join(__dirname, "./Barrage_IntroductionPage");
+let _static_dir = process.env.STATICDIR ? 
+  process.env.STATICDIR.trim().replace(/^[\.\/]+|\/+$/g, '').trim() : defaultStaticDir;
+
+let static_dir = join(__dirname, _static_dir);
 let node_env = process.env.NODE_ENV;
 
 let webpackDefineConfig = {
@@ -47,7 +51,7 @@ let webpackconfig = {
         //where compiled files be put
         path: join(static_dir, "./dist"),
         //url for develop server
-        publicPath: "/Barrage_IntroductionPage/dist/", //uri while web set run
+        publicPath: `/${_static_dir}/dist/`, //uri while web set run
         filename: "[name].js"
     },
     module: {
@@ -96,7 +100,7 @@ let webpackconfig = {
         historyApiFallback: {
             rewrites: [{
                 from: /^\/(|index.html)$/,
-                to: "/Barrage_IntroductionPage/index.html"
+                to: `/${_static_dir}/index.html`
             }],
         },
         proxy: {
