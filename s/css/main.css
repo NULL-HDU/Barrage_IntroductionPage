@@ -1,0 +1,377 @@
+
+
+body{
+    display: -webkit-box;
+    height: 1000px;
+    width:100%;
+    -webkit-box-orient: vertical;
+    background-color: black;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+
+.screen{
+    width:100%;
+    margin: 40px 0;
+    padding: 0 auto;
+    height: 1000px;
+    background-color: white;
+    overflow: hidden;
+}
+
+
+
+/*--------------------------------header---------------------------------*/
+
+.header{
+    background: black;
+    background-size: cover;
+
+}
+
+
+.plane{
+    display: -webkit-box;
+    align:center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    height: 100%;
+    width: 100%;
+    background: url(../img/dbgrid.png);
+
+}
+
+#headerline {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align : center;
+    font-size: 8em;
+}
+
+
+#headerline > #main{
+
+    text-shadow:3px 0px 6px orange;
+    color: gold;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+#headerline > #aside{
+    text-shadow: 1px 0px 2px gold;
+    color: #FFFF99;
+    font-size: 0.2em;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+#theme{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    width:70%;
+}
+
+
+#titleline{
+    font-size: 1.5em;
+    font-style: italic;
+    text-shadow: 1px 0px 2px gold;
+    color:white;
+    -webkit-box-flex:10;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    //border-left: 1px solid gold;
+
+    margin: 0 0 0 5%;
+    padding: 0;
+}
+
+#titleline > article{
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+
+
+#theme_log{
+    -webkit-box-flex:10;
+    margin: 0 5%;
+    padding: 0;
+}
+
+
+
+
+
+
+
+#goTo{
+    position:relative;
+    left : -100px;
+    background: black;
+    box-shadow: 0 0 3em gold,inset 0 0 2em gold;
+    width: 100000px;
+    height: 180px;
+    opacity: 0.1;
+
+    font-family: monospace, serif; font-size: 3em;color: white;
+    -webkit-transition: all 0.6s ease;
+}
+
+#goTo > p{
+    position: relative;
+    top:60px;
+}
+
+#goTo:hover{
+    opacity: 0.5;
+}
+
+
+
+/*---------------------------------------------------------introduction----------------------------------------*/
+
+
+.introduction{
+
+
+}
+
+#introductionPlane{
+    background: url(../img/dbgrid.png);
+    display: -webkit-box;
+    align:center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.items{
+    display: -webkit-box;
+    align:center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 90%;
+    width: 100%;
+
+}
+
+
+.item{
+    width:20%;
+    height:70%;
+    background: white;
+    margin: 5%;
+    border:medium groove gold;
+    border-radius: 2em;
+}
+
+
+
+
+.item > div{
+    display: -webkit-box;
+    align:center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+
+
+.item > div > p{
+
+    font-size: 1.5em;
+    font-style: italic;
+    text-shadow: 2px 0px 0px gold;
+    color: black;
+    padding:0 10%;
+    margin: 10px ;
+
+}
+
+
+
+
+/*---------------------------------------------------------game----------------------------------------*/
+
+
+.game{
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width:100%;
+    height:100%;
+    background: black;
+}
+
+
+.gamePlant{
+
+    position:relative;
+    width: 100%;
+    height:100%;
+
+}
+
+
+.gamePlant > #game_canvas{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    width: 100%;
+    height:100%;
+
+}
+
+#replay{
+    position: absolute;
+    top:2%;
+    left:2%;
+    z-index:999;
+    margin:0 0;
+    padding:0 auto;
+}
+
+
+
+
+/*---------------------------------------------------------floor----------------------------------------*/
+
+
+.tail{
+    display: -webkit-box;
+    align:center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+#oneMoreSay{
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width:100%;
+    height: 60%;
+
+}
+
+#oneMoreSay > article{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    font-size: 1.5em;
+    font-style: italic;
+    text-shadow: 2px 0px 0px gold;
+    color: black;
+    padding:0 10%;
+    margin: 10px ;
+}
+
+
+#foot{
+    font-size: 1em;
+    font-style: italic;
+    color:gold;
+    width:100%;
+    height:40%;
+    background:black;
+
+    display: -webkit-box;
+    align:center;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+
+
+#footInformation{
+    width:90%;
+
+    margin:1% 0 ;
+    display: -webkit-box;
+    align:center;
+    -webkit-box-pack: center;
+}
+
+
+.logo_foot{
+    display: -webkit-box;
+    align:center;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    margin: 0 0;
+    -webkit-box-flex:2;
+}
+
+
+.worker{
+
+    margin: 0 0;
+    padding: 0 2%;
+    -webkit-box-flex:3;
+    height: 70%;
+    border-left: 1px solid gold;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+
+}
+
+
+.authors{
+
+    width:90%;
+    -webkit-box-flex:1;
+    margin:3%;
+    border-bottom: 1px solid gold;
+}
+
+
+.authorsInformation{
+    padding-left: 30%;
+    -webkit-box-flex:4;
+    margin:3%;
+}
+
+
+
+/*---------------------------------------------------------other----------------------------------------*/
+
+
+.toPlay{
+    padding:0 auto;
+
+}
+.toPlay > p{
+
+    margin: 0 auto;
+}
