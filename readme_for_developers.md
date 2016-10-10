@@ -25,6 +25,8 @@ webpack-dev-server 会将 `/api/*`路径重定向到 `http://localhost:3000`，�
 
 ```sh
 npm install
+cd ./Barrage_IntroductionPage
+git clone -b gh-pages https://github.com/NULL-HDU/Barrage_IntroductionPage.git
 ```
 
 ## command
