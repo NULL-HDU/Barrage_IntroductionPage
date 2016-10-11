@@ -16,6 +16,11 @@ let _static_dir = process.env.STATICDIR ?
 let static_dir = join(__dirname, _static_dir);
 let node_env = process.env.NODE_ENV;
 
+let isDebug = node_env === "production" ? false : true;
+
+// ----------------------------------Plugin---------------------------------------
+let plugins = []
+
 let webpackDefineConfig = {
     "process.env": JSON.stringify(node_env)
 }
@@ -27,9 +32,7 @@ let htmlWebpackPluginConfig = {
     inject: true,
 };
 
-let isDebug = true;
-if (node_env === "production") {
-    isDebug = false;
+if (!isDebug) {
     Object.assign(htmlWebpackPluginConfig, {
         minify: {
             removeComments: true,
@@ -39,10 +42,42 @@ if (node_env === "production") {
                 // https://github.com/kangax/html-minifier#options-quick-reference
         }
     })
+
+    plugins = plugins.concat([
+      // split vendor js into its own file
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        minChunks: function (module, count) {
+          // any required modules inside node_modules are extracted to vendor
+          return (
+            module.resource && /\.js$/.test(module.resource) &&
+            module.resource.indexOf(
+              join(__dirname, './node_modules')
+            ) === 0
+          )
+        }
+      }),
+      // extract webpack runtime and module manifest to its own file in order to
+      // prevent vendor hash from being updated whenever app bundle is updated
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'manifest',
+        chunks: ['vendor']
+      })
+    ])
 }
 
-let uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-
+plugins = plugins.concat([
+        //UglifyJs Plugin will minify output(bundle.js) JS codes.
+        //http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.DefinePlugin(webpackDefineConfig),
+        new HtmlWebpackPlugin(htmlWebpackPluginConfig)
+    ])
+// ----------------------------------Plugin---------------------------------------
 
 let webpackconfig = {
     devtool: isDebug ? "eval" : "#source-map",
@@ -82,16 +117,7 @@ let webpackconfig = {
             loader: "file-loader"
         }]
     },
-    plugins: [
-        new uglifyJsPlugin({
-            //UglifyJs Plugin will minify output(bundle.js) JS codes.http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.DefinePlugin(webpackDefineConfig),
-        new HtmlWebpackPlugin(htmlWebpackPluginConfig)
-    ],
+    plugins: plugins,
 
     // a server for front end development
     devServer: {
