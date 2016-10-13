@@ -1,84 +1,64 @@
-/* app.js --- the entry of this web application
- *
- * Maintainer: Mephis Pheies ( MephistoMMM )
- * Email: mephistommm@gmail.com
- */
+/*  app.js
+*	author:yummyLcj
+*	email:luchenjiemail@gmail.com
+*/
 
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
 
 import ReactMarkdown from "react-markdown";
 
-import GoldenFrame from "./component/golden_frame.jsx";
+import BothEnd from "./component/bothEnd.jsx";
 import ImageCard from "./component/image_card.jsx";
-import data from "./data.js";
-
-import Space from "./img/Space.png";
-import Play from "./img/Play.png";
-import MovingShip from "./img/MovingShip.png";
-import littleBack from "./img/littleBack.png";
-import Barrage from "./img/Barrage.png";
+import Content from "./component/content.jsx"
+import AppCss from "./app.css"
 
 class App extends Component {
+	constructor(props){
+		super(props);
+	}
 
-  constructor(props){
-    super(props);
-  }
+	render() {
+		return (
+			<div style = {{width:"1000px",margin:"0 auto"}}>
+				<BothEnd style={{margin:"30px auto 72px"}}>
+					<span>BARRAGE</span>
+					<span>Wiki</span>
+					<span>test</span>
+				</BothEnd>	
 
-  render() {
-    let boardSize = {
-        width: 980,
-        height: 605,
-    };
-    let bodyMargin = (window.screen.availHeight - boardSize.height) / 2;
+				<Content style={{width:"100%",height:"348px"}}>
+					<div>
+						<div>
+							<p className={AppCss.title}>INTRODUCTION OF</p>
+							<p className={AppCss.title}>THE AMAZING GAME</p>
+						</div>
+						<div style={{margin:"24px 0 36px"}}>
+							<p className={AppCss.intro}>An online HTML5 game</p>
+							<p className={AppCss.intro}>of multiplayer</p>
+							<p className={AppCss.intro}>fight with dazzing bullets</p>
+						</div>
+						<div style={{height:"60px",display:"flex",alignItems:"center"}}>
+							<img src="./src/img/Button-min.png" style={{marginRight:"40px"}} />
+							<a href="#" style={{textDecoration:"none"}}><span style={{height:"60px",verticalAlign:"center",color:"blue",fontSize:"18px"}}>or for more information</span></a>
+						</div>					
+					</div>
+					<img src="./src/img/MaybeAPic-min.png" alt="img"/>
+				</Content>
 
-    return (
-      <GoldenFrame flow="row" style={{
-        width: boardSize.width,
-        height: boardSize.height,
-        margin: bodyMargin + "px auto",
-        lineHeight: "1.4em",
-        alignItems: "flex-start"
-      }}>
-        <GoldenFrame reverse={true}>
-            <ImageCard style={{
-              width: 595,
-              height: 159
-            }} background={Barrage}/>
-          <div style={{
-            color: "white",
-            padding: "4px 16px"
-          }}>
-            <ReactMarkdown source={data.src} style={{width: "100%", height: "100%"}}/>
-          </div>
-        </GoldenFrame>
-        <GoldenFrame>
-          <div>
-            <ImageCard style={{
-              width: 365,
-              height: 365
-            }} background={Space}/>
-          </div>
-          <div>
-            <ImageCard style={{
-              width: 365,
-              height: 75
-            }} background={littleBack} image={MovingShip} />
-            <ImageCard style={{
-              width: 365,
-              height: 135
-            }} background={Play} />
-          </div>
-        </GoldenFrame>
-      </GoldenFrame>
-    );
-  }
+	 			<BothEnd style={{margin:"125px auto 0",height:"45px"}}>
+					<span>The NULL-HDU Team</span>
+					<span>Visit us at github</span>
+					<a href="#"><img src="./src/img/GitHub-min.png" /></a>
+				</BothEnd>
+			</div>
+		)
+
+	}
+
 }
 
 ReactDOM.render(
-  <App/>,
-  document.getElementById("app")
-);
-
-
-/* app.js ends here */
+	<App />,
+	document.getElementById("app")
+)

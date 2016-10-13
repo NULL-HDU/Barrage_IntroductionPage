@@ -1,0 +1,19 @@
+.title{
+	width:648px;
+	height:72px;
+	font-size:60px;
+	vertical-align: center;
+	color:white;
+	padding : 0;
+	margin:0;
+	letter-spacing: -3px;
+}
+
+.intro{
+	height:28px;
+	width:313px;
+	font-size: 24px;
+	vertical-align: center;
+	color:white;
+	margin:0;
+}
