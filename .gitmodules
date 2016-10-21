@@ -1,0 +1,4 @@
+[submodule "Barrage_IntroductionPage"]
+	path = Barrage_IntroductionPage
+	url = https://github.com/NULL-HDU/Barrage_IntroductionPage.git
+	branch = gh-pages
