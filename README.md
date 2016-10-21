@@ -1,3 +1,3 @@
 # Barrage_IntroductionPage
 
-just a introduction page
+just a introduction page.
