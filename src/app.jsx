@@ -10,12 +10,12 @@ import ReactMarkdown from "react-markdown";
 
 import BothEnd from "./component/bothEnd.jsx";
 import ImageCard from "./component/image_card.jsx";
-import Content from "./component/content.jsx"
-import AppCss from "./app.css"
+import Content from "./component/content.jsx";
+import AppCss from "./app.css";
 
-import ButtonMin from "./src/img/Button-min.png"
-import MaybeAPicMin from "./src/img/MaybeAPic-min.png"
-import GitHubMin from "./src/img/GitHub-min.png"
+import ButtonMin from "./img/Button-min.png";
+import MaybeAPicMin from "./img/MaybeAPic-min.png";
+import GitHubMin from "./img/GitHub-min.png";
 
 class App extends Component {
 	constructor(props){
